@@ -57,12 +57,6 @@ function addResources(resource){
 //         .insert(task)
 //         .where("t.project_id", project_id)
 // }
-function addTasks(id, task) {
-    return db("tasks")
-      .insert(task)
-      .where({ project_id: id })
-      .returning("ids")
-      .then((ids) => {
-        return getProjectTasks(id);
-      });
-  }
+function addTasks(task, id){
+    return db('tasks').insert(task).where({ projectId: id })
+}

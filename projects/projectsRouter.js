@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
         })
 });
 
+
+
 router.get('/resources', (req, res) => {
     Projects.getResources()
         .then(resources => {
@@ -61,9 +63,9 @@ router.post('/:id/tasks', (req, res) => {
     const taskData = req.body;
     const id = req.params.id;
 
-    Projects.addTasks(id, taskData)
+    Projects.addTasks(taskData, id)
         .then(created => {
-            res.status(201).json({ taskData })
+            res.status(201).json({ created })
         })
         .catch(err => {
             res.status(500).json({ message: "Failed creating new task"})

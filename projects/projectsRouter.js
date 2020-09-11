@@ -66,7 +66,7 @@ router.post('/:id/tasks', (req, res) => {
             res.status(201).json({ taskData })
         })
         .catch(err => {
-            res.status(500).json({ message: "Failed creating new task" })
+            res.status(500).json({ message: "Failed creating new task"})
         })
 })
 
